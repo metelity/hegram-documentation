@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hegram Documentation</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #7f8c8d;
+            --light-gray: #f5f5f5;
+            --medium-gray: #e0e0e0;
+            --dark-gray: #333;
+            --text-color: #333;
+            --link-color: #2980b9;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: white;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 15px;
+        }
+        
+        /* Hide sidebar on mobile */
+        .sidebar {
+            display: none;
+        }
+        
+        .content {
+            width: 100%;
+            padding: 0;
+        }
+        
+        /* Header styles */
+        header {
+            background-color: white;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--medium-gray);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 15px;
+        }
+        
+        h1, h2, h3, h4 {
+            color: var(--primary);
+            font-weight: 500;
+        }
+        
+        h1 {
+            font-size: 1.5rem;
+            margin: 0;
+        }
+        
+        h2 {
+            font-size: 1.3rem;
+            margin-top: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--medium-gray);
+        }
+        
+        h3 {
+            font-size: 1.1rem;
+            margin-top: 1.2rem;
+        }
+        
+        /* Code blocks */
+        pre {
+            background-color: var(--light-gray);
+            padding: 1rem;
+            border-radius: 4px;
+            overflow-x: auto;
+            border-left: 3px solid var(--secondary);
+            font-size: 0.9rem;
+        }
+        
+        code {
+            font-family: 'Courier New', monospace;
+            background-color: var(--light-gray);
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+            font-size: 0.85em;
+        }
+        
+        /* Content sections */
+        .section {
+            margin-bottom: 1.5rem;
+            background-color: white;
+            padding: 1rem;
+            border-radius: 4px;
+        }
+        
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+        }
+        
+        th, td {
+            padding: 0.5rem;
+            text-align: left;
+            border-bottom: 1px solid var(--medium-gray);
+        }
+        
+        th {
+            background-color: var(--light-gray);
+            font-weight: 500;
+        }
+        
+        /* Footer */
+        footer {
+            margin-top: 2rem;
+            padding: 1rem 0;
+            border-top: 1px solid var(--medium-gray);
+            color: var(--secondary);
+            font-size: 0.8rem;
+            text-align: center;
+        }
+        
+        /* Language selector */
+        .lang-selector {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .lang-btn {
+            background-color: var(--light-gray);
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            font-size: 0.9rem;
+        }
+        
+        .lang-dropdown {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 100px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
+            z-index: 1;
+            border-radius: 4px;
+            right: 0;
+        }
+        
+        .lang-dropdown a {
+            color: var(--text-color);
+            padding: 0.5rem 0.8rem;
+            text-decoration: none;
+            display: block;
+            font-size: 0.9rem;
+        }
+        
+        .lang-dropdown a:hover {
+            background-color: var(--light-gray);
+        }
+        
+        .lang-selector:hover .lang-dropdown {
+            display: block;
+        }
+        
+        /* Hide non-active language content */
+        .lang-content {
+            display: none;
+        }
+        
+        .lang-content.active {
+            display: block;
+        }
+        
+        /* Mobile menu button */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+        
+        /* Responsive adjustments */
+        @media (min-width: 768px) {
+            body {
+                display: none;
+            }
+            
+            body::before {
+                content: "This documentation is optimized for mobile devices only. Please view on a smartphone.";
+                display: block;
+                padding: 2rem;
+                text-align: center;
+                font-size: 1.2rem;
+                color: var(--primary);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <h1>Hegram Documentation</h1>
+            <div class="lang-selector">
+                <div class="lang-btn" id="current-lang">English ▼</div>
+                <div class="lang-dropdown">
+                    <a href="#" onclick="switchLanguage('en')">English</a>
+                    <a href="#" onclick="switchLanguage('ru')">Русский</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <main class="content">
+            <!-- English Content -->
+            <div id="en-content" class="lang-content active">
+                <section id="overview" class="section">
+                    <h2>Overview</h2>
+                    <p>Hegram is a powerful Python library for building Telegram bots with a clean and intuitive API.</p>
+                </section>
+                
+                <section id="installation" class="section">
+                    <h2>Installation</h2>
+                    
+                    <div id="install-pip">
+                        <h3>Using pip</h3>
+                        <pre><code>pip install hegram</code></pre>
+                    </div>
+                    
+                    <div id="install-setup">
+                        <h3>Using setup.py</h3>
+                        <p>From the root directory where setup.py is located:</p>
+                        <pre><code>pip install .</code></pre>
+                    </div>
+                </section>
+                
+                <section id="structure" class="section">
+                    <h2>Project Structure</h2>
+                    <pre>
+Hegram/
+├── hegram/
+│   ├── __init__.py
+│   ├── bot.py
+│   └── types.py
+├── examples/
+│   ├── simple_bot.py
+│   ├── admin_bot.py
+│   └── async_bot.py
+├── README.md
+└── setup.py</pre>
+                </section>
+                
+                <section id="getting-started" class="section">
+                    <h2>Getting Started</h2>
+                    
+                    <div id="simple-bot">
+                        <h3>A Simple Bot Example</h3>
+                        <pre><code>from hegram import Bot
+
+bot = Bot(token="YOUR_TOKEN")
+
+@bot.function("/start")
+def start_handler(update):
+    return "Hello, world!"
+
+bot.run()</code></pre>
+                    </div>
+                </section>
+                
+                <section id="api-reference" class="section">
+                    <h2>API Reference</h2>
+                    
+                    <div id="bot-class">
+                        <h3>The Bot Class</h3>
+                        <h4>Initialization</h4>
+                        <pre><code>Bot(token: str, polling_interval: float = 1.0)</code></pre>
+                    </div>
+                    
+                    <div id="message-methods">
+                        <h3>Message Sending Methods</h3>
+                        <table>
+                            <tr>
+                                <th>Method</th>
+                                <th>Description</th>
+                            </tr>
+                            <tr>
+                                <td><code>send_message()</code></td>
+                                <td>Sends a text message</td>
+                            </tr>
+                            <tr>
+                                <td><code>edit_message()</code></td>
+                                <td>Edits an existing message</td>
+                            </tr>
+                        </table>
+                    </div>
+                    
+                    <div id="media-methods">
+                        <h3>Media Methods</h3>
+                        <table>
+                            <tr>
+                                <th>Method</th>
+                                <th>Description</th>
+                            </tr>
+                            <tr>
+                                <td><code>send_photo()</code></td>
+                                <td>Sends a photo (file or URL)</td>
+                            </tr>
+                        </table>
+                    </div>
+                </section>
+                
+                <section id="examples" class="section">
+                    <h2>Examples</h2>
+                    <h3>Inline Keyboard Example</h3>
+                    <pre><code>from hegram import Bot
+
+bot = Bot(token="YOUR_TOKEN")
+
+@bot.function("/start")
+def start_handler(update):
+    chat_id = update["message"]["chat"]["id"]
+    keyboard = {
+        "inline_keyboard": [
+            [{"text": "Option 1", "callback_data": "opt1"}]
+        ]
+    }
+    bot.send_message(chat_id, "Choose an option:", reply_markup=keyboard)
+
+bot.run()</code></pre>
+                </section>
+            </div>
+            
+            <!-- Russian Content -->
+            <div id="ru-content" class="lang-content">
+                <section id="overview" class="section">
+                    <h2>Обзор</h2>
+                    <p>Hegram - это мощная библиотека Python для создания Telegram ботов с чистым и интуитивным API.</p>
+                </section>
+                
+                <section id="installation" class="section">
+                    <h2>Установка</h2>
+                    
+                    <div id="install-pip">
+                        <h3>Через pip</h3>
+                        <pre><code>pip install hegram</code></pre>
+                    </div>
+                    
+                    <div id="install-setup">
+                        <h3>Через setup.py</h3>
+                        <p>Из корневой директории, где находится setup.py:</p>
+                        <pre><code>pip install .</code></pre>
+                    </div>
+                </section>
+                
+                <section id="structure" class="section">
+                    <h2>Структура проекта</h2>
+                    <pre>
+Hegram/
+├── hegram/
+│   ├── __init__.py
+│   ├── bot.py
+│   └── types.py
+├── examples/
+│   ├── simple_bot.py
+│   ├── admin_bot.py
+│   └── async_bot.py
+├── README.md
+└── setup.py</pre>
+                </section>
+                
+                <section id="getting-started" class="section">
+                    <h2>Начало работы</h2>
+                    
+                    <div id="simple-bot">
+                        <h3>Пример простого бота</h3>
+                        <pre><code>from hegram import Bot
+
+bot = Bot(token="ВАШ_ТОКЕН")
+
+@bot.function("/start")
+def start_handler(update):
+    return "Привет, мир!"
+
+bot.run()</code></pre>
+                    </div>
+                </section>
+                
+                <section id="api-reference" class="section">
+                    <h2>Справочник API</h2>
+                    
+                    <div id="bot-class">
+                        <h3>Класс Bot</h3>
+                        <h4>Инициализация</h4>
+                        <pre><code>Bot(token: str, polling_interval: float = 1.0)</code></pre>
+                    </div>
+                    
+                    <div id="message-methods">
+                        <h3>Методы сообщений</h3>
+                        <table>
+                            <tr>
+                                <th>Метод</th>
+                                <th>Описание</th>
+                            </tr>
+                            <tr>
+                                <td><code>send_message()</code></td>
+                                <td>Отправляет текстовое сообщение</td>
+                            </tr>
+                            <tr>
+                                <td><code>edit_message()</code></td>
+                                <td>Редактирует существующее сообщение</td>
+                            </tr>
+                        </table>
+                    </div>
+                    
+                    <div id="media-methods">
+                        <h3>Методы медиа</h3>
+                        <table>
+                            <tr>
+                                <th>Метод</th>
+                                <th>Описание</th>
+                            </tr>
+                            <tr>
+                                <td><code>send_photo()</code></td>
+                                <td>Отправляет фото (файл или URL)</td>
+                            </tr>
+                        </table>
+                    </div>
+                </section>
+                
+                <section id="examples" class="section">
+                    <h2>Примеры</h2>
+                    <h3>Пример инлайн-клавиатуры</h3>
+                    <pre><code>from hegram import Bot
+
+bot = Bot(token="ВАШ_ТОКЕН")
+
+@bot.function("/start")
+def start_handler(update):
+    chat_id = update["message"]["chat"]["id"]
+    keyboard = {
+        "inline_keyboard": [
+            [{"text": "Вариант 1", "callback_data": "opt1"}]
+        ]
+    }
+    bot.send_message(chat_id, "Выберите вариант:", reply_markup=keyboard)
+
+bot.run()</code></pre>
+                </section>
+            </div>
+            
+            <footer>
+                <p>Hegram Documentation &copy; 2023 | Версия 1.0</p>
+            </footer>
+        </main>
+    </div>
+
+    <script>
+        function switchLanguage(lang) {
+            // Hide all language content
+            document.querySelectorAll('.lang-content').forEach(el => {
+                el.classList.remove('active');
+            });
+            
+            // Show selected language content
+            document.getElementById(lang + '-content').classList.add('active');
+            
+            // Update language button text
+            document.getElementById('current-lang').textContent = 
+                lang === 'en' ? 'English ▼' : 'Русский ▼';
+            
+            return false;
+        }
+    </script>
+</body>
+  </html>

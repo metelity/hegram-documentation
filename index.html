@@ -3,23 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hegram Documentation</title>
+    <title>Wetchgram Documentation</title>
     <style>
         :root {
-            --primary: #2c3e50;
+            --primary: #3498db;
             --secondary: #7f8c8d;
-            --light-gray: #f5f5f5;
-            --medium-gray: #e0e0e0;
-            --dark-gray: #333;
-            --text-color: #333;
-            --link-color: #2980b9;
+            --light-gray: #2d3436;
+            --medium-gray: #636e72;
+            --dark-gray: #dfe6e9;
+            --text-color: #dfe6e9;
+            --link-color: #74b9ff;
+            --bg-color: #1e272e;
         }
         
         body {
             font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             line-height: 1.6;
             color: var(--text-color);
-            background-color: white;
+            background-color: var(--bg-color);
             margin: 0;
             padding: 0;
         }
@@ -30,7 +31,6 @@
             padding: 15px;
         }
         
-        /* Hide sidebar on mobile */
         .sidebar {
             display: none;
         }
@@ -40,9 +40,8 @@
             padding: 0;
         }
         
-        /* Header styles */
         header {
-            background-color: white;
+            background-color: var(--bg-color);
             padding: 1rem 0;
             border-bottom: 1px solid var(--medium-gray);
             position: sticky;
@@ -55,6 +54,16 @@
             justify-content: space-between;
             align-items: center;
             padding: 0 15px;
+        }
+        
+        .logo-container {
+            text-align: center;
+            padding: 20px 0;
+        }
+        
+        .logo-container img {
+            height: 80px;
+            margin-bottom: 10px;
         }
         
         h1, h2, h3, h4 {
@@ -79,7 +88,6 @@
             margin-top: 1.2rem;
         }
         
-        /* Code blocks */
         pre {
             background-color: var(--light-gray);
             padding: 1rem;
@@ -97,15 +105,14 @@
             font-size: 0.85em;
         }
         
-        /* Content sections */
         .section {
             margin-bottom: 1.5rem;
-            background-color: white;
+            background-color: var(--bg-color);
             padding: 1rem;
             border-radius: 4px;
+            border: 1px solid var(--medium-gray);
         }
         
-        /* Tables */
         table {
             width: 100%;
             border-collapse: collapse;
@@ -124,7 +131,6 @@
             font-weight: 500;
         }
         
-        /* Footer */
         footer {
             margin-top: 2rem;
             padding: 1rem 0;
@@ -134,7 +140,6 @@
             text-align: center;
         }
         
-        /* Language selector */
         .lang-selector {
             position: relative;
             display: inline-block;
@@ -153,12 +158,13 @@
         .lang-dropdown {
             display: none;
             position: absolute;
-            background-color: white;
+            background-color: var(--bg-color);
             min-width: 100px;
             box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
             z-index: 1;
             border-radius: 4px;
             right: 0;
+            border: 1px solid var(--medium-gray);
         }
         
         .lang-dropdown a {
@@ -177,7 +183,6 @@
             display: block;
         }
         
-        /* Hide non-active language content */
         .lang-content {
             display: none;
         }
@@ -186,7 +191,6 @@
             display: block;
         }
         
-        /* Mobile menu button */
         .mobile-menu-btn {
             display: none;
             background: none;
@@ -196,7 +200,6 @@
             padding: 0.5rem;
         }
         
-        /* Responsive adjustments */
         @media (min-width: 768px) {
             body {
                 display: none;
@@ -209,6 +212,7 @@
                 text-align: center;
                 font-size: 1.2rem;
                 color: var(--primary);
+                background-color: var(--bg-color);
             }
         }
     </style>
@@ -216,7 +220,7 @@
 <body>
     <header>
         <div class="header-container">
-            <h1>Hegram Documentation</h1>
+            <h1>Wetchgram Documentation</h1>
             <div class="lang-selector">
                 <div class="lang-btn" id="current-lang">English ▼</div>
                 <div class="lang-dropdown">
@@ -228,38 +232,41 @@
     </header>
     
     <div class="container">
+        <div class="logo-container">
+            <img src="icon.png" alt="Wetchgram Logo">
+        </div>
+        
         <main class="content">
             <!-- English Content -->
             <div id="en-content" class="lang-content active">
                 <section id="overview" class="section">
                     <h2>Overview</h2>
-                    <p>Hegram is a powerful Python library for building Telegram bots with a clean and intuitive API.</p>
+                    <p>Wetchgram is a powerful Python library for building Telegram bots with a clean and intuitive API.</p>
                 </section>
                 
                 <section id="installation" class="section">
                     <h2>Installation</h2>
-                    
                     <div id="cloning-repore">
                         <h3>Cloning repositories</h3>
-                        <pre><code>git clone github.com/metelity/hegram</code></pre>
+                        <pre><code>git clone github.com/metelity/wetchgram</code></pre>
                     </div>
                     
                     <div id="install-setup">
                         <h3>Choice of the directory</h3>
-                        <pre><code>cd hegram</code></pre>
+                        <pre><code>cd wetchgram</code></pre>
                     </div>
 
                     <div id="installing">
                         <h3>Started-installing</h3>
                         <pre><code>python install.py</code></pre>
                     </div>
-            </section>
+                </section>
                 
                 <section id="structure" class="section">
                     <h2>Project Structure</h2>
                     <pre>
-Hegram/
-├── hegram/
+Wetchgram/
+├── wetchgram/
 │   ├── __init__.py
 │   ├── bot.py
 │   └── types.py
@@ -273,10 +280,9 @@ Hegram/
                 
                 <section id="getting-started" class="section">
                     <h2>Getting Started</h2>
-                    
                     <div id="simple-bot">
                         <h3>A Simple Bot Example</h3>
-                        <pre><code>from hegram import Bot
+                        <pre><code>from wetchgram import Bot
 
 bot = Bot(token="YOUR_TOKEN")
 
@@ -300,58 +306,108 @@ bot.run()</code></pre>
                     <div id="message-methods">
                         <h3>Message Sending Methods</h3>
                         <table>
-                            <tr>
-                                <th>Method</th>
-                                <th>Description</th>
-                            </tr>
-                            <tr>
-                                <td><code>send_message()</code></td>
-                                <td>Sends a text message</td>
-                            </tr>
-                            <tr>
-                                <td><code>edit_message()</code></td>
-                                <td>Edits an existing message</td>
-                            </tr>
-                                  <tr>
-                                <td><code>delete_message()</code></td>
-                                <td>Delete a message</td>
-                                  </tr>
+                            <tr><th>Method</th><th>Description</th></tr>
+                            <tr><td><code>send_message()</code></td><td>Sends a text message</td></tr>
+                            <tr><td><code>edit_message()</code></td><td>Edits an existing message</td></tr>
+                            <tr><td><code>delete_message()</code></td><td>Delete a message</td></tr>
                         </table>
                     </div>
                     
                     <div id="media-methods">
                         <h3>Media Methods</h3>
                         <table>
-                            <tr>
-                                <th>Method</th>
-                                <th>Description</th>
-                            </tr>
-                            <tr>
-                                <td><code>send_photo()</code></td>
-                                <td>Sends a photo (file or URL)</td>
-                            </tr>
+                            <tr><th>Method</th><th>Description</th></tr>
+                            <tr><td><code>send_photo()</code></td><td>Sends a photo (file or URL)</td></tr>
+                            <tr><td><code>edit_message_media()</code></td><td>Edits message media</td></tr>
+                            <tr><td><code>edit_message_caption()</code></td><td>Edits message caption</td></tr>
+                            <tr><td><code>copy_message()</code></td><td>Copies message to another chat</td></tr>
+                        </table>
+                    </div>
+                    
+                    <div id="chat-management">
+                        <h3>Chat Management</h3>
+                        <table>
+                            <tr><th>Method</th><th>Description</th></tr>
+                            <tr><td><code>get_chat()</code></td><td>Get chat information</td></tr>
+                            <tr><td><code>get_chat_administrators()</code></td><td>Get chat admins list</td></tr>
+                            <tr><td><code>export_chat_invite_link()</code></td><td>Generate invite link</td></tr>
+                            <tr><td><code>set_chat_title()</code></td><td>Change chat title</td></tr>
+                            <tr><td><code>set_chat_photo()</code></td><td>Change chat photo</td></tr>
+                        </table>
+                    </div>
+                    
+                    <div id="webhook-methods">
+                        <h3>Webhook Methods</h3>
+                        <table>
+                            <tr><th>Method</th><th>Description</th></tr>
+                            <tr><td><code>set_webhook()</code></td><td>Set webhook URL</td></tr>
+                            <tr><td><code>delete_webhook()</code></td><td>Remove webhook</td></tr>
+                            <tr><td><code>get_webhook_info()</code></td><td>Get webhook status</td></tr>
+                        </table>
+                    </div>
+                    
+                    <div id="games-methods">
+                        <h3>Games Methods</h3>
+                        <table>
+                            <tr><th>Method</th><th>Description</th></tr>
+                            <tr><td><code>send_game()</code></td><td>Send a game</td></tr>
+                            <tr><td><code>set_game_score()</code></td><td>Set player score</td></tr>
+                            <tr><td><code>get_game_high_scores()</code></td><td>Get high scores</td></tr>
+                        </table>
+                    </div>
+                    
+                    <div id="sticker-methods">
+                        <h3>Stickers & Dice</h3>
+                        <table>
+                            <tr><th>Method</th><th>Description</th></tr>
+                            <tr><td><code>send_sticker()</code></td><td>Send sticker</td></tr>
+                            <tr><td><code>send_dice()</code></td><td>Send dice/emoji</td></tr>
+                        </table>
+                    </div>
+                    
+                    <div id="forum-methods">
+                        <h3>Forum Topics</h3>
+                        <table>
+                            <tr><th>Method</th><th>Description</th></tr>
+                            <tr><td><code>create_forum_topic()</code></td><td>Create new topic</td></tr>
+                            <tr><td><code>reopen_forum_topic()</code></td><td>Reopen closed topic</td></tr>
                         </table>
                     </div>
                 </section>
                 
                 <section id="examples" class="section">
                     <h2>Examples</h2>
-                    <h3>Inline Keyboard Example</h3>
-                    <pre><code>from hegram import Bot
+                    
+                    <h3>Webhook Setup Example</h3>
+                    <pre><code>bot.set_webhook(
+    url="https://yourdomain.com/webhook",
+    max_connections=40
+)</code></pre>
 
-bot = Bot(token="YOUR_TOKEN")
+                    <h3>Chat Management Example</h3>
+                    <pre><code># Get chat info
+chat_info = bot.get_chat(chat_id)
 
-@bot.function("/start")
-def start_handler(update):
-    chat_id = update["message"]["chat"]["id"]
-    keyboard = {
-        "inline_keyboard": [
-            [{"text": "Option 1", "callback_data": "opt1"}]
-        ]
-    }
-    bot.send_message(chat_id, "Choose an option:", reply_markup=keyboard)
+# Change chat title
+bot.set_chat_title(chat_id, "New Chat Title")
 
-bot.run()</code></pre>
+# Export invite link
+invite_link = bot.export_chat_invite_link(chat_id)</code></pre>
+
+                    <h3>Game Example</h3>
+                    <pre><code># Send game
+bot.send_game(
+    chat_id=chat_id,
+    game_short_name="my_game"
+)
+
+# Set player score
+bot.set_game_score(
+    user_id=user_id,
+    score=100,
+    chat_id=chat_id,
+    message_id=message_id
+)</code></pre>
                 </section>
             </div>
             
@@ -359,24 +415,23 @@ bot.run()</code></pre>
             <div id="ru-content" class="lang-content">
                 <section id="overview" class="section">
                     <h2>Обзор</h2>
-                    <p>Hegram - это мощная библиотека Python для создания Telegram ботов с чистым и интуитивным API.</p>
+                    <p>Wetchgram - это мощная библиотека Python для создания Telegram ботов с чистым и интуитивным API.</p>
                 </section>
             
                 <section id="installation" class="section">
                     <h2>Установка</h2>
-                    
                     <div id="cloning-repore">
-                        <h3>Клонирование репозиторий</h3>
-                        <pre><code>git clone github.com/metelity/hegram</code></pre>
+                        <h3>Клонирование репозитория</h3>
+                        <pre><code>git clone github.com/metelity/wetchgram</code></pre>
                     </div>
                     
                     <div id="install-setup">
                         <h3>Выбор директории</h3>
-                        <pre><code>cd hegram</code></pre>
+                        <pre><code>cd wetchgram</code></pre>
                     </div>
 
                     <div id="installing">
-                        <h3>Начать устоновку</h3>
+                        <h3>Начало установки</h3>
                         <pre><code>python install.py</code></pre>
                     </div>
                 </section>
@@ -384,8 +439,8 @@ bot.run()</code></pre>
                 <section id="structure" class="section">
                     <h2>Структура проекта</h2>
                     <pre>
-Hegram/
-├── hegram/
+Wetchgram/
+├── wetchgram/
 │   ├── __init__.py
 │   ├── bot.py
 │   └── types.py
@@ -399,10 +454,9 @@ Hegram/
                 
                 <section id="getting-started" class="section">
                     <h2>Начало работы</h2>
-                    
                     <div id="simple-bot">
                         <h3>Пример простого бота</h3>
-                        <pre><code>from hegram import Bot
+                        <pre><code>from wetchgram import Bot
 
 bot = Bot(token="ВАШ_ТОКЕН")
 
@@ -426,83 +480,127 @@ bot.run()</code></pre>
                     <div id="message-methods">
                         <h3>Методы сообщений</h3>
                         <table>
-                            <tr>
-                                <th>Метод</th>
-                                <th>Описание</th>
-                            </tr>
-                            <tr>
-                                <td><code>send_message()</code></td>
-                                <td>Отправляет текстовое сообщение</td>
-                            </tr>
-                            <tr>
-                                <td><code>edit_message()</code></td>
-                                <td>Редактирует существующее сообщение</td>
-                            </tr>
-                                    <td><code>delete_message()</code></td>
-                                <td>Удоляет существующее сообщение</td>
-                        </tr>
-                            
+                            <tr><th>Метод</th><th>Описание</th></tr>
+                            <tr><td><code>send_message()</code></td><td>Отправка текстового сообщения</td></tr>
+                            <tr><td><code>edit_message()</code></td><td>Редактирование сообщения</td></tr>
+                            <tr><td><code>delete_message()</code></td><td>Удаление сообщения</td></tr>
                         </table>
                     </div>
                     
                     <div id="media-methods">
-                        <h3>Методы медиа</h3>
+                        <h3>Медиа методы</h3>
                         <table>
-                            <tr>
-                                <th>Метод</th>
-                                <th>Описание</th>
-                            </tr>
-                            <tr>
-                                <td><code>send_photo()</code></td>
-                                <td>Отправляет фото (файл или URL)</td>
-                            </tr>
+                            <tr><th>Метод</th><th>Описание</th></tr>
+                            <tr><td><code>send_photo()</code></td><td>Отправка фото</td></tr>
+                            <tr><td><code>edit_message_media()</code></td><td>Редактирование медиа</td></tr>
+                            <tr><td><code>edit_message_caption()</code></td><td>Редактирование подписи</td></tr>
+                            <tr><td><code>copy_message()</code></td><td>Копирование сообщения</td></tr>
+                        </table>
+                    </div>
+                    
+                    <div id="chat-management">
+                        <h3>Управление чатами</h3>
+                        <table>
+                            <tr><th>Метод</th><th>Описание</th></tr>
+                            <tr><td><code>get_chat()</code></td><td>Информация о чате</td></tr>
+                            <tr><td><code>get_chat_administrators()</code></td><td>Список администраторов</td></tr>
+                            <tr><td><code>export_chat_invite_link()</code></td><td>Создание ссылки-приглашения</td></tr>
+                            <tr><td><code>set_chat_title()</code></td><td>Изменение названия чата</td></tr>
+                            <tr><td><code>set_chat_photo()</code></td><td>Изменение фото чата</td></tr>
+                        </table>
+                    </div>
+                    
+                    <div id="webhook-methods">
+                        <h3>Webhook методы</h3>
+                        <table>
+                            <tr><th>Метод</th><th>Описание</th></tr>
+                            <tr><td><code>set_webhook()</code></td><td>Установка webhook</td></tr>
+                            <tr><td><code>delete_webhook()</code></td><td>Удаление webhook</td></tr>
+                            <tr><td><code>get_webhook_info()</code></td><td>Информация о webhook</td></tr>
+                        </table>
+                    </div>
+                    
+                    <div id="games-methods">
+                        <h3>Игровые методы</h3>
+                        <table>
+                            <tr><th>Метод</th><th>Описание</th></tr>
+                            <tr><td><code>send_game()</code></td><td>Отправка игры</td></tr>
+                            <tr><td><code>set_game_score()</code></td><td>Установка счета</td></tr>
+                            <tr><td><code>get_game_high_scores()</code></td><td>Получение рекордов</td></tr>
+                        </table>
+                    </div>
+                    
+                    <div id="sticker-methods">
+                        <h3>Стикеры и кубики</h3>
+                        <table>
+                            <tr><th>Метод</th><th>Описание</th></tr>
+                            <tr><td><code>send_sticker()</code></td><td>Отправка стикера</td></tr>
+                            <tr><td><code>send_dice()</code></td><td>Отправка кубика/эмодзи</td></tr>
+                        </table>
+                    </div>
+                    
+                    <div id="forum-methods">
+                        <h3>Форумы</h3>
+                        <table>
+                            <tr><th>Метод</th><th>Описание</th></tr>
+                            <tr><td><code>create_forum_topic()</code></td><td>Создание темы</td></tr>
+                            <tr><td><code>reopen_forum_topic()</code></td><td>Возобновление темы</td></tr>
                         </table>
                     </div>
                 </section>
                 
                 <section id="examples" class="section">
                     <h2>Примеры</h2>
-                    <h3>Пример инлайн-клавиатуры</h3>
-                    <pre><code>from hegram import Bot
+                    
+                    <h3>Пример настройки Webhook</h3>
+                    <pre><code>bot.set_webhook(
+    url="https://yourdomain.com/webhook",
+    max_connections=40
+)</code></pre>
 
-bot = Bot(token="ВАШ_ТОКЕН")
+                    <h3>Пример управления чатом</h3>
+                    <pre><code># Получение информации о чате
+chat_info = bot.get_chat(chat_id)
 
-@bot.function("/start")
-def start_handler(update):
-    chat_id = update["message"]["chat"]["id"]
-    keyboard = {
-        "inline_keyboard": [
-            [{"text": "Вариант 1", "callback_data": "opt1"}]
-        ]
-    }
-    bot.send_message(chat_id, "Выберите вариант:", reply_markup=keyboard)
+# Изменение названия чата
+bot.set_chat_title(chat_id, "Новое название чата")
 
-bot.run()</code></pre>
+# Создание ссылки-приглашения
+invite_link = bot.export_chat_invite_link(chat_id)</code></pre>
+
+                    <h3>Пример работы с играми</h3>
+                    <pre><code># Отправка игры
+bot.send_game(
+    chat_id=chat_id,
+    game_short_name="my_game"
+)
+
+# Установка счета игрока
+bot.set_game_score(
+    user_id=user_id,
+    score=100,
+    chat_id=chat_id,
+    message_id=message_id
+)</code></pre>
                 </section>
             </div>
             
             <footer>
-                <p>Hegram Documentation &copy; 2023 | Версия 1.0</p>
+                <p>Wetchgram Documentation &copy; 2023 | Версия 1.0</p>
             </footer>
         </main>
     </div>
 
     <script>
         function switchLanguage(lang) {
-            // Hide all language content
             document.querySelectorAll('.lang-content').forEach(el => {
                 el.classList.remove('active');
             });
-            
-            // Show selected language content
             document.getElementById(lang + '-content').classList.add('active');
-            
-            // Update language button text
             document.getElementById('current-lang').textContent = 
                 lang === 'en' ? 'English ▼' : 'Русский ▼';
-            
             return false;
         }
     </script>
 </body>
-  </html>
+    </html>
